@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    form(action="add-event" method="POST").border.border-light.p-5
+        p.h4.mb-4.text-center New Event
+        select#select.browser-default.custom-select.mb-4(name='type')
+            option(value='' disabled='' selected='') Event Type
+            option(value='1') Surf
+            option(value='2') Snowboarding
+            option(value='3') Mountain Biking
+            option(value='4') Hiking
+            option(value='5') Meditation
+            option(value='6') Other
+ 
+        label(for='textInput') Event Name
+        input#textInput.form-control.mb-4(type='text' placeholder='e.g. Weeklong Surf trip' name='name')
+        label(for='textInput') Event Location
+        input#textInput.form-control.mb-4(type='text' placeholder='e.g. Travemünde' name='location')
+        label(for='textarea') Event Description
+        textarea#textarea.form-control.mb-4(placeholder='Details about the event.' name='details')
+        .input-group.mb-4
+            .input-group-prepend
+            span.input-group-text Upload
+            .custom-file
+            input#fileInput.custom-file-input(type='file' aria-describedby='fileInput' name='images')
+            label.custom-file-label(for='fileInput') Upload Images
+        .custom-control.custom-checkbox.mb-4
+            input#checkbox.custom-control-input(type='checkbox', name='public')
+            label.custom-control-label(for='checkbox') Hide Event
+        button.btn.btn-info.btn-block(type='submit') Save
+
