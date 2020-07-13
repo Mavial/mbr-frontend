@@ -1,7 +1,61 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    title W.I.P. Mavial
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+    // Bootstrap core CSS
+    link(href='mdb/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='mdb/css/mdb.min.css' rel='stylesheet')
+    // Your custom styles (optional)
+    link(href='mdb/css/style.css' rel='stylesheet')
+
+  script(type='text/javascript' src='mdb/js/jquery.min.js')
+  // Bootstrap tooltips
+  script(type='text/javascript' src='mdb/js/popper.min.js')
+  // Bootstrap core JavaScript
+  script(type='text/javascript' src='mdb/js/bootstrap.min.js')
+  // MDB core JavaScript
+  script(type='text/javascript' src='mdb/js/mdb.min.js')
+
   body
-    block content
+    // Navbar
+    nav.navbar.navbar-expand-lg.navbar-dark.primary-color
+      // Navbar brand
+      a.navbar-brand(href='#') My Weekend Rocks
+      // Collapse button
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#basicExampleNav' aria-controls='basicExampleNav' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      // Collapsible content
+      #basicExampleNav.collapse.navbar-collapse
+        // Links
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='#')
+              | Home
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='#') Features
+          li.nav-item
+            a.nav-link(href='#') Pricing
+          // Dropdown
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
+            .dropdown-menu.dropdown-primary(aria-labelledby='navbarDropdownMenuLink')
+              a.dropdown-item(href='#') Action
+              a.dropdown-item(href='#') Another action
+              a.dropdown-item(href='#') Something else here
+        // Links
+        form.form-inline
+          .md-form.my-0
+            input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
+
+    div(style='height: 100%')
+      .flex-center.flex-column.animated.fadeIn
+        block content
+    
+    
