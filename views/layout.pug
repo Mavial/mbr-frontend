@@ -13,6 +13,8 @@ html
     link(href='mdb/css/mdb.min.css' rel='stylesheet')
     // Your custom styles (optional)
     link(href='mdb/css/style.css' rel='stylesheet')
+    // My custom styles (screw the above)
+    link(rel='stylesheet' href='../stylesheets/global.css')
 
   script(type='text/javascript' src='mdb/js/jquery.min.js')
   // Bootstrap tooltips
@@ -22,7 +24,7 @@ html
   // MDB core JavaScript
   script(type='text/javascript' src='mdb/js/mdb.min.js')
 
-  body
+  header
     // Navbar
     nav.navbar.navbar-expand-lg.navbar-dark.primary-color
       // Navbar brand
@@ -53,9 +55,10 @@ html
         form.form-inline
           .md-form.my-0
             input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
-
-    div(style='height: 100%; padding-top: 50px;')
-      .flex-center.flex-column.animated.fadeIn
-        block content
+    
+    body
+        div(style='height: 100%; padding-top: 50px;')
+        .flex-center.flex-column.animated.fadeIn
+            block content
     
     

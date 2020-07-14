@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-var EventModel = require('../schemas/events');
+var EventModel = require('../schemas/event');
 
 router.post('/', function (req, res, next) {
     var eventJson = {
