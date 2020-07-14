@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 #{eventJson.name}
+    p #{eventJson.type}
+    p 
+        | Von: #{eventJson.startDate}
+        br
+        | Bis: #{eventJson.endDate}
