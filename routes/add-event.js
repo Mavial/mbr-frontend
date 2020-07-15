@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
         location: req.body.location,
         detail: req.body.detail,
         images: req.body.images,
-        public: req.body.public,
+        public: (req.body.public) ? 1 : 0,
     }
     var event = new EventModel(eventJson);
     event.save((err, product) => {

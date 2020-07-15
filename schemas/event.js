@@ -13,12 +13,12 @@ var Schema = mongoose.Schema;
 var eventSchema = new Schema({
     type: {type: String, required: true},
     name: {type: String, required: true},
-    startDate: String,
-    endDate: String,
+    startDate: Date,
+    endDate: Date,
     location: String,
     detail: String,
     images: String,
-    public: String,
+    public: Boolean,
 
     // WIP
     addedTime: Date,
