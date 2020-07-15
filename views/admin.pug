@@ -152,20 +152,19 @@ main.pt-5.mx-lg-5.animated.fadeIn
                   th Details
                   th Public
               // Table head
-
               // Table body
               tbody
                 each event, index in events
                     tr(style='height: 10%')
-                    th(scope='row')= index+1
-                    td= event.name
-                    td(style='width: 5 %')= event.type
-                    td= event.location
-                    td #{fixedDate(event.startDate)}
-                        i.fas.fa-arrow-right.px-2
-                        | #{fixedDate(event.endDate)}
-                    td(style='width: 25%;')= event.detail
-                    td= event.public
+                        th(scope='row')= index+1
+                        td= event.name
+                        td(style='width: 5 %')= event.type
+                        td= event.location
+                        td #{fixedDate(event.startDate)}
+                            i.fas.fa-arrow-right.px-2
+                            | #{fixedDate(event.endDate)}
+                        td(style='width: 25%;')= event.detail
+                        td= event.public
               // Table body
             // Table
             .d-flex.justify-content-end
