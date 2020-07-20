@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// MAYBE I SHOULD MAKE A CUSTOM MODULE FOR THIS?
 // CONFIGURE MULTER FILE STORAGE AND NAME FORMATTING
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
