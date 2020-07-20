@@ -2,6 +2,16 @@ extends layout
 
 block content
     h1 #{eventJson.name}
+    #carouselExampleSlidesOnly.carousel.slide(data-ride='carousel')
+        .carousel-inner
+            each image, index in eventJson.images
+                if index == 0
+                    .carousel-item.active
+                        img.d-block.w-100(src=image)
+                else
+                    .carousel-item
+                        img.d-block.w-100(src=image)
+
     p #{eventJson.type}
     p 
         | Von: #{eventJson.startDate}
