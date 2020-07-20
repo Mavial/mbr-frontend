@@ -17,7 +17,7 @@ var eventSchema = new Schema({
     endDate: Date,
     location: String,
     detail: String,
-    images: String,
+    images: Array,
     public: Boolean,
 
     // WIP

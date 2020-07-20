@@ -14,7 +14,7 @@ block content
     // This block contains the form used by admins to 
     // submit events to the database 
 
-    form(action="add-event" method="POST").border.border-light.p-5
+    form(action="add-event" enctype='multipart/form-data' method="POST").border.border-light.p-5
         p.h4.mb-4.text-center New Event
 
         // Event type selector
@@ -49,12 +49,10 @@ block content
         
         // Event image uploader WIP!
         .input-group.mb-4
-            .input-group-prepend
-            span.input-group-text Upload
             .custom-file
-            input#fileInput.custom-file-input(type='file' aria-describedby='fileInput' name='images')
-            label.custom-file-label(for='fileInput') Upload Images
-        
+                input#fileInput.custom-file-input(type='file' aria-describedby='fileInput' name='images' multiple)
+                label.custom-file-label(for='fileInput' style='overflow: hidden;') Choose File
+
         // Event public checkbox
         .custom-control.custom-checkbox.mb-4
             input#checkbox.custom-control-input(type='checkbox', name='public')

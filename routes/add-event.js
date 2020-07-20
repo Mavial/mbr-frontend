@@ -4,7 +4,18 @@ var router = express.Router();
 
 var EventModel = require('../schemas/event');
 
-router.post('/', function (req, res, next) {
+function listImages(eventName, uploadedImages) {
+    var imgList = []
+    console.log(eventName)
+    for (i in uploadedImages) {
+        img = uploadedImages[i]
+        var imgPath = eventName + '/' + img.filename
+        imgList.push(imgPath)
+    }
+    return imgList
+}
+
+router.post('/', upload.array('images', 10) , (req, res, next) => {
     var eventJson = {
         type: req.body.type,
         name: req.body.name,
@@ -12,7 +23,7 @@ router.post('/', function (req, res, next) {
         endDate: req.body.endDate,
         location: req.body.location,
         detail: req.body.detail,
-        images: req.body.images,
+        images: listImages(req.body.name, req.files),
         public: (req.body.public) ? 1 : 0,
     }
     var event = new EventModel(eventJson);
