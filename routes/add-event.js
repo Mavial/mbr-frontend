@@ -8,7 +8,6 @@ var EventModel = require('../schemas/event');
 // load data from uploaded files and create list of image paths
 function listImages(eventName, uploadedImages) {
     var imgList = []
-    console.log(eventName)
     for (i in uploadedImages) {
         img = uploadedImages[i]
         var imgPath = eventName + '/' + img.filename
