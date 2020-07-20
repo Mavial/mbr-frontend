@@ -22,10 +22,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-// CONFIGURE MULTER FILE STORAGE
-var storage = multer.diskStorage({
+// CONFIGURE MULTER FILE STORAGE AND NAME FORMATTING
+var storage = multer.diskStorage({ 
     destination: function (req, file, cb) {
         var dir = `uploads/${req.body.name}`
+        // create directory for event if non exsistant
         try {
             fs.mkdir(dir, error => cb(null, dir))
         } catch (err) {

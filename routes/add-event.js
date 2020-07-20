@@ -4,6 +4,8 @@ var router = express.Router();
 
 var EventModel = require('../schemas/event');
 
+
+// load data from uploaded files and create list of image paths
 function listImages(eventName, uploadedImages) {
     var imgList = []
     console.log(eventName)
@@ -15,6 +17,7 @@ function listImages(eventName, uploadedImages) {
     return imgList
 }
 
+// upload.array uses the multer middleware to process the uploaded files.
 router.post('/', upload.array('images', 10) , (req, res, next) => {
     var eventJson = {
         type: req.body.type,
