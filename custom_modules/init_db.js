@@ -7,7 +7,7 @@ inthe config file.
 */
 
 var mongoose = require('mongoose');
-var config = require('./config');
+var config = require('../config');
 
 var connectionString = `mongodb+srv://${config.DB.username}:${config.DB.password}@${config.DB.url}/${config.DB.database}?authSource=admin`;
 
