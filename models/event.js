@@ -5,12 +5,12 @@ and model used by the mongoose ORM.
 
 */
 
-var mongoose = require('mongoose');
-var mongoosePaginate = require('mongoose-paginate-v2');
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
+const Schema = mongoose.Schema;
 
-var Schema = mongoose.Schema;
 
-var eventSchema = new Schema({
+const eventSchema = new Schema({
     type: {type: String, required: true},
     name: {type: String, required: true},
     startDate: Date,
@@ -28,6 +28,6 @@ var eventSchema = new Schema({
 
 eventSchema.plugin(mongoosePaginate);
 
-var eventModel = mongoose.model('eventModel', eventSchema);
+var EventModel = mongoose.model('EventModel', eventSchema);
 
-module.exports = eventModel;
+module.exports = EventModel;

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 
 const CONFIG = require('../config');
-const EventModel = require('../schemas/event');
+const EventModel = require('../models/event');
 
 
 

@@ -2,7 +2,7 @@ const router = require('express').Router();
 var upload = require('../custom_modules/init-multer');
 
 
-var EventModel = require('../schemas/event');
+var EventModel = require('../models/event');
 
 
 // load data from uploaded files and create list of image paths

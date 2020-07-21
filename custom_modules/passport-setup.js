@@ -2,6 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
 
 const CONFIG = require('../config');
+const UserModel = require('../models/user');
 
 passport.use(
     new GoogleStrategy({
@@ -9,7 +10,8 @@ passport.use(
         clientID: CONFIG.oauth2Credentials.client_id,
         clientSecret: CONFIG.oauth2Credentials.client_secret
     },
-    function () {
+    function (accessToken, refreshToken, profile, done) {
         // passport callback function 
+        console.log(profile);
     })
 );
