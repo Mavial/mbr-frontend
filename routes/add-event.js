@@ -1,5 +1,4 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
 var upload = require('../custom_modules/init-multer');
 
 

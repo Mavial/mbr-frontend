@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const router = require('express').Router();
+const passport = require('passport');
 
-var EventModel = require('../schemas/event');
+const CONFIG = require('../config');
+const EventModel = require('../schemas/event');
 
 
 

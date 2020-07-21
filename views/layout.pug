@@ -43,17 +43,17 @@ html
           li.nav-item
             a.nav-link(href='users') Users
           // Dropdown
-          li.nav-item.dropdown
-            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
-            .dropdown-menu.dropdown-primary(aria-labelledby='navbarDropdownMenuLink')
-              a.dropdown-item(href='#') Action
-              a.dropdown-item(href='#') Another action
-              a.dropdown-item(href='#') Something else here
+        //-   li.nav-item.dropdown
+        //-     a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
+        //-     .dropdown-menu.dropdown-primary(aria-labelledby='navbarDropdownMenuLink')
+        //-       a.dropdown-item(href='#') Action
+        //-       a.dropdown-item(href='#') Another action
+        //-       a.dropdown-item(href='#') Something else here
         // Links
         // RIGHT SIDE
         ul.navbar-nav.nav-flex-icons
           li.nav-item
-            a.nav-link.border.border-light.rounded.waves-effect(href=loginLink)
+            a.nav-link.border.border-light.rounded.waves-effect(href='/auth/google')
               i.fab.fa-google
               span.px-4 Login
         // Search function currently disabled!

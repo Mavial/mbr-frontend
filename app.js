@@ -1,14 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
-var cors = require('cors');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 
 // CUSTOM MODULES
-var db = require('./custom_modules/init-db');
+const db = require('./custom_modules/init-db');
+const passportSetup = require('./custom_modules/passport-setup');
 
 // create express app
 var app = express();
@@ -26,13 +27,13 @@ app.use(express.json());
 
 
 // ROUTERS
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var adminRouter = require('./routes/admin');
-var eventFormRouter = require('./routes/event-form');
-var addEventRouter = require('./routes/add-event');
-var authRouter = require('./routes/auth');
-var authCallbackRouter = require('./routes/auth-callback');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
+const eventFormRouter = require('./routes/event-form');
+const addEventRouter = require('./routes/add-event');
+const authRouter = require('./routes/auth-routes');
+// const authCallbackRouter = require('./routes/auth-callback');
 
 // ROUTES
 app.use('/', indexRouter);
@@ -41,7 +42,7 @@ app.use('/admin', adminRouter);
 app.use('/event-form', eventFormRouter);
 app.use('/add-event', addEventRouter);
 app.use('/auth', authRouter);
-app.use('/auth-callback', authCallbackRouter);
+//app.use('/auth-callback', authCallbackRouter);
 
 
 const {
