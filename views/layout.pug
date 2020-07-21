@@ -26,7 +26,7 @@ html
     // Navbar
     nav.navbar.navbar-expand-lg.navbar-dark.primary-color
       // Navbar brand
-      a.navbar-brand(href='#') My Weekend Rocks
+      a.navbar-brand(href='/') My Weekend Rocks
       // Collapse button
       button.navbar-toggler(type='button' data-toggle='collapse' data-target='#basicExampleNav' aria-controls='basicExampleNav' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
@@ -50,9 +50,16 @@ html
               a.dropdown-item(href='#') Another action
               a.dropdown-item(href='#') Something else here
         // Links
-        form.form-inline
-          .md-form.my-0
-            input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
+        // RIGHT SIDE
+        ul.navbar-nav.nav-flex-icons
+          li.nav-item
+            a.nav-link.border.border-light.rounded.waves-effect(href=loginLink)
+              i.fab.fa-google
+              span.px-4 Login
+        // Search function currently disabled!
+        //- form.form-inline
+        //-   .md-form.my-0
+        //-     input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
     
     body
         div(style='height: 100%; padding-top: 50px;')

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var upload = require('../custom_modules/init_multer');
+var upload = require('../custom_modules/init-multer');
 
 
 var EventModel = require('../schemas/event');

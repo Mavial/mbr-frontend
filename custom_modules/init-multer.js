@@ -1,3 +1,12 @@
+/*
+
+
+    Module used for initializing and 
+    configuring multer middleware. 
+
+
+*/
+
 multer = require('multer');
 fs = require('fs');
 
