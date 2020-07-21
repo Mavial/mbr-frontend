@@ -5,21 +5,30 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 
 // CUSTOM MODULES
+const CONFIG = require('./config');
 const db = require('./custom_modules/init-db');
 const passportSetup = require('./custom_modules/passport-setup');
 
 // create express app
-var app = express();
+const app = express();
 
 
-// MIDDLEWARES
+// INITIALIZE MIDDLEWARES
 app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [CONFIG.session.cookieKey],
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // default middlewares
 app.use(cookieParser());
 app.use(logger('dev'));

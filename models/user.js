@@ -14,10 +14,22 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    firstName: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
     googleId: {
         type: String,
         required: true
     },
+    photo: {
+        type: String,
+        required: false
+    }
 }, {
     collection: 'users'
 });
