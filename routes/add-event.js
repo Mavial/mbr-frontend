@@ -1,12 +1,12 @@
 const router = require('express').Router();
-var upload = require('../custom_modules/init-multer');
+const upload = require('../custom_modules/init-multer');
 
-
-var EventModel = require('../models/event');
+const authCheck = require('../custom_modules/authorisation-middleware');
+const EventModel = require('../models/event');
 
 
 // load data from uploaded files and create list of image paths
-function listImages(eventName, uploadedImages) {
+function createImageList(eventName, uploadedImages) {
     var imgList = []
     for (i in uploadedImages) {
         img = uploadedImages[i]
@@ -17,7 +17,7 @@ function listImages(eventName, uploadedImages) {
 }
 
 // upload.array uses the multer middleware to process the uploaded files.
-router.post('/', upload.array('images', 10) , (req, res, next) => {
+router.post('/', authCheck, upload.array('images', 10) , (req, res, next) => {
     var eventJson = {
         type: req.body.type,
         name: req.body.name,
@@ -25,7 +25,7 @@ router.post('/', upload.array('images', 10) , (req, res, next) => {
         endDate: req.body.endDate,
         location: req.body.location,
         detail: req.body.detail,
-        images: listImages(req.body.name, req.files),
+        images: createImageList(req.body.name, req.files),
         public: (req.body.public) ? 1 : 0,
     }
     var event = new EventModel(eventJson);

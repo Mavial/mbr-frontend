@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: [CONFIG.session.cookieKey],
+    sameSite: 'none',
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,7 +40,6 @@ app.use(express.json());
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
-const eventFormRouter = require('./routes/event-form');
 const addEventRouter = require('./routes/add-event');
 const authRouter = require('./routes/auth-routes');
 
@@ -47,7 +47,6 @@ const authRouter = require('./routes/auth-routes');
 app.use('/', indexRouter);
 app.use('/users', usersRouter); // NOT USED!
 app.use('/admin', adminRouter);
-app.use('/event-form', eventFormRouter);
 app.use('/add-event', addEventRouter);
 app.use('/auth', authRouter);
 
