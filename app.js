@@ -42,7 +42,6 @@ const adminRouter = require('./routes/admin');
 const eventFormRouter = require('./routes/event-form');
 const addEventRouter = require('./routes/add-event');
 const authRouter = require('./routes/auth-routes');
-// const authCallbackRouter = require('./routes/auth-callback');
 
 // ROUTES
 app.use('/', indexRouter);
@@ -51,7 +50,6 @@ app.use('/admin', adminRouter);
 app.use('/event-form', eventFormRouter);
 app.use('/add-event', addEventRouter);
 app.use('/auth', authRouter);
-//app.use('/auth-callback', authCallbackRouter);
 
 
 const {
@@ -64,7 +62,6 @@ app.set('view engine', 'pug');
 
 // STATIC FILES
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('public')); // UNNECESSARY??
 app.use(express.static('uploads'));
 
 // catch 404 and forward to error handler

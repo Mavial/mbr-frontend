@@ -29,7 +29,7 @@ passport.use(
             }).then(function (currentUser) {
                 if (currentUser) {
                     // user already in db
-                    console.log('User is: ' + currentUser.username);
+                    console.log(`User ${currentUser.username} logged in!`);
                     done(null, currentUser);
                 } else {
                     new UserModel({
@@ -37,7 +37,8 @@ passport.use(
                         firstName: profile.name.givenName,
                         email: profile.emails[0].value,
                         googleId: profile.id,
-                        photo: profile.photos[0].value
+                        photo: profile.photos[0].value,
+                        admin: false,
                     }).save().then(function (newUser) {
                         console.log('New user created: ' + newUser);
                         done(null, newUser);

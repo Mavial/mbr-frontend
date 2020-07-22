@@ -29,6 +29,11 @@ const userSchema = new Schema({
     photo: {
         type: String,
         required: false
+    },
+    admin: {
+        type: Boolean,
+        default: false,
+        required: true,
     }
 }, {
     collection: 'users'
