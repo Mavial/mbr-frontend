@@ -3,7 +3,7 @@ const passport = require('passport');
 
 const CONFIG = require('../config');
 const EventModel = require('../models/event');
-const authCheck = require('../custom_modules/authorisation-middleware').authCheck;
+const authCheck = require('../custom_modules/authorisation-middleware');
 
 
 /* GET admin page */

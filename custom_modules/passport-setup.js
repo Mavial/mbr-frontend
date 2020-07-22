@@ -4,18 +4,17 @@ const GoogleStrategy = require('passport-google-oauth20');
 const CONFIG = require('../config');
 const UserModel = require('../models/user');
 
-// (logical step 2)
+// read & write cookies.
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 })
-
 passport.deserializeUser(function (id, done) {
     UserModel.findById(id).then(function (user) {
         done(null, user);
     })
 })
 
-// (logical step 1)
+//  setup google strategy for passport middleware
 passport.use(
     new GoogleStrategy({
             callbackURL: CONFIG.oauth2Credentials.redirect_uris[0],
