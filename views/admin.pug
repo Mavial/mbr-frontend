@@ -4,6 +4,8 @@ head
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     title W.I.P Mavial
+    // Favicon
+    link(rel='icon' type='image/ico' href='/img/MWR-favicon.ico')
     // Font Awesome
     link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/all.css')
     // Bootstrap core CSS
@@ -84,8 +86,9 @@ header
 
     // Sidebar
     .sidebar-fixed.position-fixed
-        a.logo-wrapper.waves-effect
-            img.img-fluid(src='https://mdbootstrap.com/img/logo/mdb-email.png' alt='')
+        .text-center(style='width: 100%;')
+            a.waves-effect
+                img.img-fluid(src='/img/MWR.png' alt='')
         .list-group.list-group-flush
             a.list-group-item.active.waves-effect(href='#')
                 i.fas.fa-chart-pie.mr-3
