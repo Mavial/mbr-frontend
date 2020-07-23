@@ -1,107 +1,115 @@
 doctype html
 head
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  meta(http-equiv='x-ua-compatible' content='ie=edge')
-  title W.I.P Mavial
-  // Font Awesome
-  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/all.css')
-  // Bootstrap core CSS
-  link(href='css/bootstrap.min.css' rel='stylesheet')
-  // Material Design Bootstrap
-  link(href='css/mdb.min.css' rel='stylesheet')
-  // MDBoostrap Datatables
-  link(href='css/addons/datatables2.min.css' rel='stylesheet')
-  // Your custom styles (optional)
-  link(href='css/style.css' rel='stylesheet')
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    title W.I.P Mavial
+    // Favicon
+    link(rel='icon' type='image/ico' href='/img/MWR-favicon.ico')
+    // Font Awesome
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/all.css')
+    // Bootstrap core CSS
+    link(href='/css/bootstrap.min.css' rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='/css/mdb.min.css' rel='stylesheet')
+    // MDBoostrap Datatables
+    link(href='/css/addons/datatables2.min.css' rel='stylesheet')
+    // Your custom styles (optional)
+    link(href='/css/style.css' rel='stylesheet')
+    link(href='/css/style-admin.css' rel='stylesheet')
 
 
-  // Style for Google Maps card
-  style.
-    .map-container{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-    }
-    .map-container iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-    }
+    // Style for Google Maps card
+    style.
+        .map-container {
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+        .map-container iframe {
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
 
 
 
 // Main Navigation
 header
-  // Navbar
-  nav.navbar.fixed-top.navbar-expand-lg.navbar-light.white.scrolling-navbar
-    .container-fluid
-      // Brand
-      a.navbar-brand.waves-effect(href='/' target='_blank')
-        strong.blue-text My Board Rocks
-      // Collapse
-      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      // Links
-      #navbarSupportedContent.collapse.navbar-collapse
-        // Left
-        ul.navbar-nav.mr-auto
-          li.nav-item
-            a.nav-link.waves-effect(href='/')
-              | Home
-              span.sr-only (current)
-          li.nav-item.active
-            a.nav-link.waves-effect(href='/admin')
-              | Admin
-          li.nav-item
-            a.nav-link.waves-effect(href='/users')
-              | Users
-        //-   li.nav-item
-        //-     a.nav-link.waves-effect(href='https://mdbootstrap.com/education/bootstrap/' target='_blank')
-        //-       | Free
-        //-       | tutorials
-        // Right
-        //- ul.navbar-nav.nav-flex-icons
-        //-   li.nav-item
-        //-     a.nav-link.waves-effect(href='https://www.facebook.com/mdbootstrap' target='_blank')
-        //-       i.fab.fa-facebook-f
-        //-   li.nav-item
-        //-     a.nav-link.waves-effect(href='https://twitter.com/MDBootstrap' target='_blank')
-        //-       i.fab.fa-twitter
-        //-   li.nav-item
-        //-     a.nav-link.border.border-light.rounded.waves-effect(href='https://github.com/mdbootstrap/bootstrap-material-design' target='_blank')
-        //-       i.fab.fa-github.mr-2
-        //-       | MDB GitHub
+    // Navbar
+    nav.navbar.fixed-top.navbar-expand-md.navbar-light.white.scrolling-navbar
+        .container-fluid
+            // Brand
+            a.navbar-brand.waves-effect(href='/' target='_blank')
+                strong.blue-text My Board Rocks
+            // Collapse
+            button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            // Links
+            #navbarSupportedContent.collapse.navbar-collapse
+                // Left
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link.waves-effect(href='/')
+                            | Home
+                            span.sr-only (current)
+                    li.nav-item.active
+                        a.nav-link.waves-effect(href='/admin')
+                            | Admin
+                    li.nav-item
+                        a.nav-link.waves-effect(href='/users')
+                            | Users
+                    //- li.nav-item
+                    //-     a.nav-link.waves-effect(href='https://mdbootstrap.com/education/bootstrap/' target='_blank')
+                    //-         | Free tutorials
+                // Right
+                ul.navbar-nav.nav-flex-icons
+                    li.nav-item.avatar.view.overlay
+                        a.nav-link.p-0.mr-2(href='#')
+                            img.rounded-circle.z-depth-0(src=userPhoto alt='avatar image' height='35')
+                            .mask.rgba-white-light
+                    li.nav-item
+                        a.nav-link.view.overlay(href='/auth/logout')
+                            i.fas.fa-sign-out-alt.p-0.mr-2.red-text
+                            .mask.rgba-white-light
+                //-     li.nav-item
+                //-         a.nav-link.waves-effect(href='https://twitter.com/MDBootstrap' target='_blank')
+                //-             i.fab.fa-twitter
+                //-     li.nav-item
+                //-         a.nav-link.border.border-light.rounded.waves-effect(href='https://github.com/mdbootstrap/bootstrap-material-design' target='_blank')
+                //-             i.fab.fa-github.mr-2
+                //-             | MDB GitHub
 
 
-  // Sidebar
-  .sidebar-fixed.position-fixed
-    a.logo-wrapper.waves-effect
-      img.img-fluid(src='https://mdbootstrap.com/img/logo/mdb-email.png' alt='')
-    .list-group.list-group-flush
-      a.list-group-item.active.waves-effect(href='#')
-        i.fas.fa-chart-pie.mr-3
-        | Events
-    //-   a.list-group-item.list-group-item-action.waves-effect(href='' data-toggle='modal' data-target='#modalContactForm')
-    //-     i.fas.fa-user.mr-3
-    //-     | Profile
-    //-   a.list-group-item.list-group-item-action.waves-effect(href='#')
-    //-     i.fas.fa-table.mr-3
-    //-     | Tables
-    //-   a.list-group-item.list-group-item-action.waves-effect(href='#')
-    //-     i.fas.fa-map.mr-3
-    //-     | Maps
-    //-   a.list-group-item.list-group-item-action.waves-effect(href='#')
-    //-     i.fas.fa-money-bill-alt.mr-3
-    //-     | Orders
+    // Sidebar
+    .sidebar-fixed.position-fixed
+        .text-center(style='width: 100%;')
+            a.waves-effect
+                img.img-fluid(src='/img/MWR.png' alt='')
+        .list-group.list-group-flush
+            a.list-group-item.active.waves-effect(href='#')
+                i.fas.fa-chart-pie.mr-3
+                | Events
+            //- a.list-group-item.list-group-item-action.waves-effect(href='' data-toggle='modal' data-target='#modalContactForm')
+            //-     i.fas.fa-user.mr-3
+            //-     | Profile
+            //- a.list-group-item.list-group-item-action.waves-effect(href='#')
+            //-     i.fas.fa-table.mr-3
+            //-     | Tables
+            //- a.list-group-item.list-group-item-action.waves-effect(href='#')
+            //-     i.fas.fa-map.mr-3
+            //-     | Maps
+            //- a.list-group-item.list-group-item-action.waves-effect(href='#')
+            //-     i.fas.fa-money-bill-alt.mr-3
+            //-     | Orders
 
 
-// CUSTOM SCRIPTS
+//- CUSTOM SCRIPTS
 
-// Fix the way dates are displayed on the event table.
+//- Fix the way dates are displayed on the event table.
 -function fixedDate(dateString){
     // if it's already a date object and not a string you don't need this line:
     -var date = new Date(dateString);
@@ -115,209 +123,209 @@ header
 
 // Main layout
 main.pt-5.mx-lg-5.animated.fadeIn
-  .container-fluid.mt-5
-    // Heading
-    .card.mb-4.wow.fadeIn
-      // Card content
-      .card-body.d-sm-flex.justify-content-between
-        h4.mb-2.mb-sm-0.pt-1
-          a(href='/') Admin
-          span /
-          span Events
-        form.d-flex.justify-content-center
-          // Default input
-          input.form-control(type='search' placeholder='Type your query' aria-label='Search')
-          button.btn.btn-primary.btn-sm.my-0.p(type='submit')
-            i.fas.fa-search
-    // Heading
+    .container-fluid.mt-5
+        // Heading
+        .card.mb-4.wow.fadeIn
+            // Card content
+            .card-body.d-sm-flex.justify-content-between
+                h4.mb-2.mb-sm-0.pt-1
+                    a(href='/') Admin
+                    | /
+                    | Events
+                form.d-flex.justify-content-center
+                    // Default input
+                    input.form-control(type='search' placeholder='Type your query' aria-label='Search')
+                    button.btn.btn-primary.btn-sm.my-0.p(type='submit')
+                        i.fas.fa-search
+        // Heading
 
 
-    .row.wow.fadeIn
-      // Grid column
-      .col-md.pb-6
-        // Card
-        .card
-          // Card content
-          .card-body
-            // Table
-            table#events.table.table-hover
-              // Table head
-              thead.white
-                tr
-                  th #
-                  th Name
-                  th Type
-                  th Location
-                  th Date
-                  th Details
-                  th Public
-              // Table head
-              // Table body
-              tbody
-                each event, index in events
-                    tr
-                        th(scope='row')= index+1
-                        td= event.name
-                        td(style='width: 5 %')= event.type
-                        td= event.location
-                        td #{fixedDate(event.startDate)}
-                            i.fas.fa-arrow-right.px-2
-                            | #{fixedDate(event.endDate)}
-                        td(style='width: 25%;')= event.detail
-                        td= event.public
-              // Table body
-            // Table
-            .d-flex.justify-content-end
-                button.btn.btn-sm.btn-rounded(type='button' onclick="window.location='/event-form';") 
-                    span(style='margin-right: 8px;') Neues Event Erstellen
-                    i.fas.fa-plus.fa-lg(style='color: green;')
-        // /.Card
-      // Grid column
-    // Grid row
-    // Grid row
-    .row.wow.fadeIn
-      // Grid column
-      .col-lg-6.col-md-6.mb-4.mt-4
-        // Card
-        .card
-          // Card header
-          .card-header Line chart
-          // Card content
-          .card-body
-          canvas#pieChart
-            //- include includes/test.pug
-        // /.Card
-      // Grid column
-      // Grid column
-      .col-lg-6.col-md-6.mb-4.mt-4
-        // Card
-        .card
-          // Card header
-          .card-header Radar Chart
-          // Card content
-          .card-body
-            canvas#radarChart
-        // /.Card
-      // Grid column
-      
-    //-   // Grid column
-    //-   .col-lg-6.col-md-6.mb-4
-    //-     // Card
-    //-     .card
-    //-       // Card header
-    //-       .card-header Doughnut Chart
-    //-       // Card content
-    //-       .card-body
-    //-         canvas#doughnutChart
-    //-     // /.Card
-    //-   // Grid column
-    //-   // Grid column
-    //-   .col-lg-6.col-md-6.mb-4
-    //-     // Card
-    //-     .card
-    //-       // Card header
-    //-       .card-header Horizontal Bar Chart
-    //-       // Card content
-    //-       .card-body
-    //-         canvas#horizontalBar
-    //-     // /.Card
-    //-   // Grid column
-    // Grid row
+        .row.wow.fadeIn
+            // Grid column
+            .col-md.pb-6
+                // Card
+                .card
+                    // Card content
+                    .card-body
+                        // Table
+                        table#events.table.table-hover
+                            // Table head
+                            thead.white
+                                tr
+                                    th #
+                                    th Name
+                                    th Type
+                                    th Location
+                                    th Date
+                                    th Details
+                                    th Public
+                            // Table head
+                            // Table body
+                            tbody
+                                each event, index in events
+                                    tr
+                                        th(scope='row')= index+1
+                                        td= event.name
+                                        td(style='width: 5 %')= event.type
+                                        td= event.location
+                                        td #{fixedDate(event.startDate)}
+                                            i.fas.fa-arrow-right.px-2
+                                            | #{fixedDate(event.endDate)}
+                                        td(style='width: 25%;')= event.detail
+                                        td= event.public
+                            // Table body
+                        // Table
+                        .d-flex.justify-content-end
+                            button.btn.btn-sm.btn-rounded(type='button' onclick="window.location='/admin/new-event';") 
+                                span(style='margin-right: 8px;') Neues Event Erstellen
+                                i.fas.fa-plus.fa-lg(style='color: green;')
+                    // /.Card
+                // /.Grid column
+        // /.Grid row
+        // Grid row
+        .row.wow.fadeIn
+                // Grid column
+                .col-lg-6.col-md-6.mb-4.mt-4
+                    // Card
+                    .card
+                        // Card header
+                        .card-header Line chart
+                        // Card content
+                        .card-body
+                            canvas#pieChart
+                            //- include includes/test.pug
+                    // /.Card
+                // Grid column
+                // Grid column
+                .col-lg-6.col-md-6.mb-4.mt-4
+                    // Card
+                    .card
+                        // Card header
+                        .card-header Radar Chart
+                        // Card content
+                        .card-body
+                            canvas#radarChart
+                    // /.Card
+                // Grid column
+               
+                //- // Grid column
+                //- .col-lg-6.col-md-6.mb-4
+                //-     // Card
+                //-     .card
+                //-         // Card header
+                //-         .card-header Doughnut Chart
+                //-         // Card content
+                //-         .card-body
+                //-             canvas#doughnutChart
+                //-     // /.Card
+                //- // Grid column
+                //- // Grid column
+                //- .col-lg-6.col-md-6.mb-4
+                //-     // Card
+                //-     .card
+                //-         // Card header
+                //-         .card-header Horizontal Bar Chart
+                //-         // Card content
+                //-         .card-body
+                //-             canvas#horizontalBar
+                //-     // /.Card
+                //- // Grid column
+        // Grid row
 
-    // Grid row
-    .row.wow.fadeIn
-      // Grid column
-      .col-md-6.mb-4
-        // Card
-        .card
-          // Card header
-          .card-header Google map
-          // Card content
-          .card-body
-            // Google map
-            #map-container-google-2.z-depth-1-half.map-container(style='height: 500px')
-              iframe(src='https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='border:0' allowfullscreen='')
-            // Google Maps
-        // /.Card
-      // Grid column
-      // Grid column
-      .col-md-6.mb-4
-        // Card
-        .card
-          // Card header
-          .card-header Modals
-          // Card content
-          .card-body
-            .text-center.mb-5
-              p.lead Click buttons below to launch modals demo
-            // First row
-            .row
-              // First column
-              .col-md-3
-                h5.text-center.mb-3 Frame Modal
-                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal4.jpg' alt='MDB graphics')
-                .text-center
-                  h5.my-3 Position
-                  a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalTopInfoDemo' data-backdrop='false') Top
-                  br
-                  a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalBottomSuccessDemo' data-backdrop='false') Bottom
-              // First column
-              // Second column
-              .col-md-3
-                h5.text-center.mb-3 Side Modal
-                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal3.jpg' alt='MDB graphics')
-                .text-center
-                  h5.my-3 Position
-                  a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTRSuccessDemo' data-backdrop='false') Top Right
-                  br
-                  a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTLInfoDemo')
-                    | Top
-                    | Left
-                  br
-                  a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBRDangerDemo')
-                    | Bottom
-                    | Right
-                  br
-                  a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBLWarningDemo')
-                    | Bottom
-                    | Left
-              // Second column
-              // Third column
-              .col-md-3
-                h5.text-center.mb-3 Central Modal
-                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal2.jpg' alt='MDB graphics')
-                .text-center
-                  h5.my-3 Size
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLoginAvatarDemo')
-                    | Small
-                  br
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLRFormDemo')
-                    | Medium
-                  br
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalLGInfoDemo')
-                    | Large
-                  br
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalFluidSuccessDemo')
-                    | Fluid
-              // Third column
-              // Fourth column
-              .col-md-3
-                h5.text-center.mb-3 Fluid Modal
-                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal1.jpg' alt='MDB graphics')
-                .text-center
-                  h5.my-3 Position
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalRightSuccessDemo') Right
-                  br
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalLeftInfoDemo') Left
-                  br
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalTopWarningDemo') Top
-                  br
-                  button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalBottomDangerDemo') Bottom
-              // Fourth column
-            // /.First row
-        // /.Card
-      // Grid column
-    // Grid row
+        // Grid row
+        .row.wow.fadeIn
+            // Grid column
+            .col-md-6.mb-4
+                // Card
+                .card
+                    // Card header
+                    .card-header Google map
+                        // Card content
+                        .card-body
+                            // Google map
+                            #map-container-google-2.z-depth-1-half.map-container(style='height: 500px')
+                                iframe(src='https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='border:0' allowfullscreen='')
+                            // Google Maps
+                    // /.Card
+            // Grid column
+            // Grid column
+            .col-md-6.mb-4
+                // Card
+                .card
+                    // Card header
+                    .card-header Modals
+                    // Card content
+                    .card-body
+                        .text-center.mb-5
+                            p.lead Click buttons below to launch modals demo
+                        // First row
+                        .row
+                            // First column
+                            .col-md-3
+                                h5.text-center.mb-3 Frame Modal
+                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal4.jpg' alt='MDB graphics')
+                                .text-center
+                                    h5.my-3 Position
+                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalTopInfoDemo' data-backdrop='false') Top
+                                    br
+                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalBottomSuccessDemo' data-backdrop='false') Bottom
+                            // First column
+                            // Second column
+                            .col-md-3
+                                h5.text-center.mb-3 Side Modal
+                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal3.jpg' alt='MDB graphics')
+                                .text-center
+                                    h5.my-3 Position
+                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTRSuccessDemo' data-backdrop='false') Top Right
+                                    br
+                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTLInfoDemo')
+                                        | Top
+                                        | Left
+                                    br
+                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBRDangerDemo')
+                                        | Bottom
+                                        | Right
+                                    br
+                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBLWarningDemo')
+                                        | Bottom
+                                        | Left
+                            // Second column
+                            // Third column
+                            .col-md-3
+                                h5.text-center.mb-3 Central Modal
+                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal2.jpg' alt='MDB graphics')
+                                .text-center
+                                    h5.my-3 Size
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLoginAvatarDemo')
+                                        | Small
+                                    br
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLRFormDemo')
+                                        | Medium
+                                    br
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalLGInfoDemo')
+                                        | Large
+                                    br
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalFluidSuccessDemo')
+                                        | Fluid
+                            // Third column
+                            // Fourth column
+                            .col-md-3
+                                h5.text-center.mb-3 Fluid Modal
+                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal1.jpg' alt='MDB graphics')
+                                .text-center
+                                    h5.my-3 Position
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalRightSuccessDemo') Right
+                                    br
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalLeftInfoDemo') Left
+                                    br
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalTopWarningDemo') Top
+                                    br
+                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalBottomDangerDemo') Bottom
+                            // Fourth column
+                        // /.First row
+                // /.Card
+            // Grid column
+        // Grid row
 // Main layout
 
 // FOOTER
@@ -335,64 +343,63 @@ script(type='text/javascript' src='js/bootstrap.min.js')
 script(type='text/javascript' src='js/mdb.min.js')
 // Initializations
 script(type='text/javascript').
-  // Animations initialization
+// Animations initialization
 script(src='//cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js')
 script.
-  new WOW().init();
+    new WOW().init();
 
 // MDBootstrap Datatables
 script(type='text/javascript' src='js/addons/datatables2.min.js')
 script.
     $(document).ready(function() {
-        $('#events').DataTable();
+            $('#events').DataTable();
     });
 
 // Google Maps
 script(src='https://maps.google.com/maps/api/js')
 script.
-  // Regular map
-  function regular_map() {
-  var var_location = new google.maps.LatLng(40.725118, -73.997699);
-  var var_mapoptions = {
-  center: var_location,
-  zoom: 14
-  };
-  var var_map = new google.maps.Map(document.getElementById("map-container"),
-  var_mapoptions);
-  var var_marker = new google.maps.Marker({
-  position: var_location,
-  map: var_map,
-  title: "New York"
-  });
-  }
-  new Chart(document.getElementById("horizontalBar"), {
-  "type": "horizontalBar",
-  "data": {
-  "labels": ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"],
-  "datasets": [{
-  "label": "My First Dataset",
-  "data": [22, 33, 55, 12, 86, 23, 14],
-  "fill": false,
-  "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)",
-  "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)",
-  "rgba(54, 162, 235, 0.2)",
-  "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"
-  ],
-  "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)",
-  "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)",
-  "rgb(201, 203, 207)"
-  ],
-  "borderWidth": 1
-  }]
-  },
-  "options": {
-  "scales": {
-  "xAxes": [{
-  "ticks": {
-  "beginAtZero": true
-  }
-  }]
-  }
-  }
-  });
+    // Regular map
+    function regular_map() {
+        var var_location = new google.maps.LatLng(40.725118, -73.997699);
+        var var_mapoptions = {
+            center: var_location,
+            zoom: 14
+        };
+        var var_map = new google.maps.Map(document.getElementById("map-container"), var_mapoptions);
+        var var_marker = new google.maps.Marker({
+            position: var_location,
+            map: var_map,
+            title: "New York"
+        });
+    }
+    new Chart(document.getElementById("horizontalBar"), {
+        "type": "horizontalBar",
+        "data": {
+            "labels": ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Grey"],
+            "datasets": [{
+                "label": "My First Dataset",
+                "data": [22, 33, 55, 12, 86, 23, 14],
+                "fill": false,
+                "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)",
+                "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"
+                ],
+                "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)",
+                "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)",
+                "rgb(201, 203, 207)"
+                ],
+                "borderWidth": 1
+            }]
+        },
+        "options": {
+            "scales": {
+                "xAxes": [{
+                    "ticks": {
+                        "beginAtZero": true
+                    }
+                }]
+            }
+        }
+    });
 
