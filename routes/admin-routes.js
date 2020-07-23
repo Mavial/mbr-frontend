@@ -1,23 +1,34 @@
 const router = require('express').Router();
 const upload = require('../custom_modules/init-multer');
 
-const authCheck = require('../custom_modules/authorisation-middleware');
+const CONFIG = require('../config');
 const EventModel = require('../models/event');
+const authCheck = require('../custom_modules/authorisation-middleware');
+const createImageList = require('../custom_modules/create-image-list');
 
 
-// load data from uploaded files and create list of image paths
-function createImageList(eventName, uploadedImages) {
-    var imgList = []
-    for (i in uploadedImages) {
-        img = uploadedImages[i]
-        var imgPath = eventName + '/' + img.filename
-        imgList.push(imgPath)
-    }
-    return imgList
-}
+// Admin Page Index
+router.get('/', authCheck, function (req, res, next) {
+    EventModel.find().then(function (doc) {
+        res.render('admin', {
+            user: req.user,
+            userPhoto: req.user.photo,
+            title: 'Admin Page',
+            events: doc,
+        });
+    });
+});
 
+// Form to add an event to the database
+router.get('/new-event', authCheck, function (req, res, next) {
+    res.render('event-form', {
+        title: 'New Event',
+    });
+});
+
+// Form submission page.
 // upload.array uses the multer middleware to process the uploaded files.
-router.post('/', authCheck, upload.array('images', 10) , (req, res, next) => {
+router.post('/new-event/submit', authCheck, upload.array('images', 10), (req, res, next) => {
     var eventJson = {
         type: req.body.type,
         name: req.body.name,
@@ -33,8 +44,10 @@ router.post('/', authCheck, upload.array('images', 10) , (req, res, next) => {
         if (err) return console.log('There has been an issue saving ' + eventJson.name + ': ' + err)
         console.log('Successfully saved event: ' + eventJson.name)
     });
-    res.render('add-event', {
+    res.render('event-submitted', {
         eventJson,
     });
 });
+
+
 module.exports = router;

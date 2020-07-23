@@ -39,15 +39,13 @@ app.use(express.json());
 // ROUTERS
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const adminRouter = require('./routes/admin');
-const addEventRouter = require('./routes/add-event');
+const adminPagesRouter = require('./routes/admin-routes');
 const authRouter = require('./routes/auth-routes');
 
 // ROUTES
 app.use('/', indexRouter);
 app.use('/users', usersRouter); // NOT USED!
-app.use('/admin', adminRouter);
-app.use('/add-event', addEventRouter);
+app.use('/admin', adminPagesRouter);
 app.use('/auth', authRouter);
 
 
