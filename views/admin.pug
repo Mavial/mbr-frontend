@@ -184,149 +184,149 @@ main.pt-5.mx-lg-5.animated.fadeIn
                 // /.Grid column
         // /.Grid row
         // Grid row
-        .row.wow.fadeIn
-                // Grid column
-                .col-lg-6.col-md-6.mb-4.mt-4
-                    // Card
-                    .card
-                        // Card header
-                        .card-header Line chart
-                        // Card content
-                        .card-body
-                            canvas#pieChart
-                            //- include includes/test.pug
-                    // /.Card
-                // Grid column
-                // Grid column
-                .col-lg-6.col-md-6.mb-4.mt-4
-                    // Card
-                    .card
-                        // Card header
-                        .card-header Radar Chart
-                        // Card content
-                        .card-body
-                            canvas#radarChart
-                    // /.Card
-                // Grid column
+        //- .row.wow.fadeIn
+        //-         // Grid column
+        //-         .col-lg-6.col-md-6.mb-4.mt-4
+        //-             // Card
+        //-             .card
+        //-                 // Card header
+        //-                 .card-header Line chart
+        //-                 // Card content
+        //-                 .card-body
+        //-                     canvas#pieChart
+        //-                     //- include includes/test.pug
+        //-             // /.Card
+        //-         // Grid column
+        //-         // Grid column
+        //-         .col-lg-6.col-md-6.mb-4.mt-4
+        //-             // Card
+        //-             .card
+        //-                 // Card header
+        //-                 .card-header Radar Chart
+        //-                 // Card content
+        //-                 .card-body
+        //-                     canvas#radarChart
+        //-             // /.Card
+        //-         // Grid column
 
-                //- // Grid column
-                //- .col-lg-6.col-md-6.mb-4
-                //-     // Card
-                //-     .card
-                //-         // Card header
-                //-         .card-header Doughnut Chart
-                //-         // Card content
-                //-         .card-body
-                //-             canvas#doughnutChart
-                //-     // /.Card
-                //- // Grid column
-                //- // Grid column
-                //- .col-lg-6.col-md-6.mb-4
-                //-     // Card
-                //-     .card
-                //-         // Card header
-                //-         .card-header Horizontal Bar Chart
-                //-         // Card content
-                //-         .card-body
-                //-             canvas#horizontalBar
-                //-     // /.Card
-                //- // Grid column
-        // Grid row
+        //-         //- // Grid column
+        //-         //- .col-lg-6.col-md-6.mb-4
+        //-         //-     // Card
+        //-         //-     .card
+        //-         //-         // Card header
+        //-         //-         .card-header Doughnut Chart
+        //-         //-         // Card content
+        //-         //-         .card-body
+        //-         //-             canvas#doughnutChart
+        //-         //-     // /.Card
+        //-         //- // Grid column
+        //-         //- // Grid column
+        //-         //- .col-lg-6.col-md-6.mb-4
+        //-         //-     // Card
+        //-         //-     .card
+        //-         //-         // Card header
+        //-         //-         .card-header Horizontal Bar Chart
+        //-         //-         // Card content
+        //-         //-         .card-body
+        //-         //-             canvas#horizontalBar
+        //-         //-     // /.Card
+        //-         //- // Grid column
+        //- // Grid row
 
-        // Grid row
-        .row.wow.fadeIn
-            // Grid column
-            .col-md-6.mb-4
-                // Card
-                .card
-                    // Card header
-                    .card-header Google map
-                        // Card content
-                        .card-body
-                            // Google map
-                            #map-container-google-2.z-depth-1-half.map-container(style='height: 500px')
-                                iframe(src='https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='border:0' allowfullscreen='')
-                            // Google Maps
-                    // /.Card
-            // Grid column
-            // Grid column
-            .col-md-6.mb-4
-                // Card
-                .card
-                    // Card header
-                    .card-header Modals
-                    // Card content
-                    .card-body
-                        .text-center.mb-5
-                            p.lead Click buttons below to launch modals demo
-                        // First row
-                        .row
-                            // First column
-                            .col-md-3
-                                h5.text-center.mb-3 Frame Modal
-                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal4.jpg' alt='MDB graphics')
-                                .text-center
-                                    h5.my-3 Position
-                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalTopInfoDemo' data-backdrop='false') Top
-                                    br
-                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalBottomSuccessDemo' data-backdrop='false') Bottom
-                            // First column
-                            // Second column
-                            .col-md-3
-                                h5.text-center.mb-3 Side Modal
-                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal3.jpg' alt='MDB graphics')
-                                .text-center
-                                    h5.my-3 Position
-                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTRSuccessDemo' data-backdrop='false') Top Right
-                                    br
-                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTLInfoDemo')
-                                        | Top
-                                        | Left
-                                    br
-                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBRDangerDemo')
-                                        | Bottom
-                                        | Right
-                                    br
-                                    a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBLWarningDemo')
-                                        | Bottom
-                                        | Left
-                            // Second column
-                            // Third column
-                            .col-md-3
-                                h5.text-center.mb-3 Central Modal
-                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal2.jpg' alt='MDB graphics')
-                                .text-center
-                                    h5.my-3 Size
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLoginAvatarDemo')
-                                        | Small
-                                    br
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLRFormDemo')
-                                        | Medium
-                                    br
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalLGInfoDemo')
-                                        | Large
-                                    br
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalFluidSuccessDemo')
-                                        | Fluid
-                            // Third column
-                            // Fourth column
-                            .col-md-3
-                                h5.text-center.mb-3 Fluid Modal
-                                img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal1.jpg' alt='MDB graphics')
-                                .text-center
-                                    h5.my-3 Position
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalRightSuccessDemo') Right
-                                    br
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalLeftInfoDemo') Left
-                                    br
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalTopWarningDemo') Top
-                                    br
-                                    button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalBottomDangerDemo') Bottom
-                            // Fourth column
-                        // /.First row
-                // /.Card
-            // Grid column
-        // Grid row
+        //- // Grid row
+        //- .row.wow.fadeIn
+        //-     // Grid column
+        //-     .col-md-6.mb-4
+        //-         // Card
+        //-         .card
+        //-             // Card header
+        //-             .card-header Google map
+        //-                 // Card content
+        //-                 .card-body
+        //-                     // Google map
+        //-                     #map-container-google-2.z-depth-1-half.map-container(style='height: 500px')
+        //-                         iframe(src='https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='border:0' allowfullscreen='')
+        //-                     // Google Maps
+        //-             // /.Card
+        //-     // Grid column
+        //-     // Grid column
+        //-     .col-md-6.mb-4
+        //-         // Card
+        //-         .card
+        //-             // Card header
+        //-             .card-header Modals
+        //-             // Card content
+        //-             .card-body
+        //-                 .text-center.mb-5
+        //-                     p.lead Click buttons below to launch modals demo
+        //-                 // First row
+        //-                 .row
+        //-                     // First column
+        //-                     .col-md-3
+        //-                         h5.text-center.mb-3 Frame Modal
+        //-                         img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal4.jpg' alt='MDB graphics')
+        //-                         .text-center
+        //-                             h5.my-3 Position
+        //-                             a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalTopInfoDemo' data-backdrop='false') Top
+        //-                             br
+        //-                             a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#frameModalBottomSuccessDemo' data-backdrop='false') Bottom
+        //-                     // First column
+        //-                     // Second column
+        //-                     .col-md-3
+        //-                         h5.text-center.mb-3 Side Modal
+        //-                         img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal3.jpg' alt='MDB graphics')
+        //-                         .text-center
+        //-                             h5.my-3 Position
+        //-                             a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTRSuccessDemo' data-backdrop='false') Top Right
+        //-                             br
+        //-                             a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalTLInfoDemo')
+        //-                                 | Top
+        //-                                 | Left
+        //-                             br
+        //-                             a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBRDangerDemo')
+        //-                                 | Bottom
+        //-                                 | Right
+        //-                             br
+        //-                             a.btn.btn-primary.btn-sm(data-toggle='modal' data-target='#sideModalBLWarningDemo')
+        //-                                 | Bottom
+        //-                                 | Left
+        //-                     // Second column
+        //-                     // Third column
+        //-                     .col-md-3
+        //-                         h5.text-center.mb-3 Central Modal
+        //-                         img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal2.jpg' alt='MDB graphics')
+        //-                         .text-center
+        //-                             h5.my-3 Size
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLoginAvatarDemo')
+        //-                                 | Small
+        //-                             br
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#modalLRFormDemo')
+        //-                                 | Medium
+        //-                             br
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalLGInfoDemo')
+        //-                                 | Large
+        //-                             br
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#centralModalFluidSuccessDemo')
+        //-                                 | Fluid
+        //-                     // Third column
+        //-                     // Fourth column
+        //-                     .col-md-3
+        //-                         h5.text-center.mb-3 Fluid Modal
+        //-                         img.img-fluid.z-depth-1(src='https://mdbootstrap.com/img/brandflow/modal1.jpg' alt='MDB graphics')
+        //-                         .text-center
+        //-                             h5.my-3 Position
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalRightSuccessDemo') Right
+        //-                             br
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalLeftInfoDemo') Left
+        //-                             br
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalTopWarningDemo') Top
+        //-                             br
+        //-                             button.btn.btn-primary.btn-sm(type='button' data-toggle='modal' data-target='#fluidModalBottomDangerDemo') Bottom
+        //-                     // Fourth column
+        //-                 // /.First row
+        //-         // /.Card
+        //-     // Grid column
+        //- // Grid row
 // Main layout
 
 // FOOTER
