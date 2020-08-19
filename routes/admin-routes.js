@@ -53,8 +53,9 @@ router.post('/delete-event', authCheck, function (req, res, next) {
 });
 
 router.post('/update-event', authCheck, function (req, res, next) {
+    // REQUEST BODY RETURNS EMPTY ON UPDATE BUT WORKS ON CREATE
     var query = {'name': req.body.name};
-    console.log(req.body)
+    console.log(req.body.name)
 });
 
 module.exports = router;
