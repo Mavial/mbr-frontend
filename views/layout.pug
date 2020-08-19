@@ -1,71 +1,104 @@
 doctype html
 html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(http-equiv='x-ua-compatible' content='ie=edge')
-    title W.I.P. Mavial
-    // Favicon
-    link(rel='icon' type='image/ico' href='/img/MWR-favicon.ico')
-    // Font Awesome
-    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
-    // Bootstrap core CSS
-    link(href='/css/bootstrap.min.css' rel='stylesheet')
-    // Material Design Bootstrap
-    link(href='/css/mdb.min.css' rel='stylesheet')
-    // Your custom styles (optional)
-    link(href='/css/style.css' rel='stylesheet')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='x-ua-compatible' content='ie=edge')
+        title W.I.P. Mavial
+        // Favicon
+        link(rel='icon' type='image/ico' href='/img/MWR-favicon.ico')
+        // Font Awesome
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+        // Bootstrap core CSS
+        link(href='/css/bootstrap.min.css' rel='stylesheet')
+        // Material Design Bootstrap
+        link(href='/css/mdb.min.css' rel='stylesheet')
+        // Your custom styles (optional)
+        link(href='/css/style.css' rel='stylesheet')
+        style(type='text/css').
+            html,
+            body,
+            header,
+            .view{
+                height: 100%;
+            }
+            @media (max-width: 740px) {
+            html,
+            body,
+            header,
+            .view {
+            height: 1000px;
+            }
+            }
+            @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            header,
+            .view {
+            height: 650px;
+            }
+            }
+            @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+            background: #1C2331!important;
+            }
+            }
 
-  script(type='/text/javascript' src='js/jquery.min.js')
-  // Bootstrap tooltips
-  script(type='/text/javascript' src='js/popper.min.js')
-  // Bootstrap core JavaScript
-  script(type='/text/javascript' src='js/bootstrap.min.js')
-  // MDB core JavaScript
-  script(type='/text/javascript' src='js/mdb.min.js')
+        script(type='text/javascript' src='/js/jquery.min.js')
+        // Bootstrap tooltips
+        script(type='text/javascript' src='/js/popper.min.js')
+        // Bootstrap core JavaScript
+        script(type='text/javascript' src='/js/bootstrap.min.js')
+        // MDB core JavaScript
+        script(type='text/javascript' src='/js/mdb.min.js')
+        // WOW js
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js")
 
-  header
-    // Navbar
-    nav.navbar.navbar-expand-lg.navbar-dark.primary-color
-      // Navbar brand
-      a.navbar-brand(href='/') My Weekend Rocks
-      // Collapse button
-      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#basicExampleNav' aria-controls='basicExampleNav' aria-expanded='false' aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      // Collapsible content
-      #basicExampleNav.collapse.navbar-collapse
-        // Links
-        ul.navbar-nav.mr-auto
-          li.nav-item.active
-            a.nav-link(href='/')
-              | Home
-              span.sr-only (current)
-          li.nav-item
-            a.nav-link(href='/admin') Admin
-          //- li.nav-item
-          //-   a.nav-link(href='/users') Users
-          //- // Dropdown
-        //-   li.nav-item.dropdown
-        //-     a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
-        //-     .dropdown-menu.dropdown-primary(aria-labelledby='navbarDropdownMenuLink')
-        //-       a.dropdown-item(href='#') Action
-        //-       a.dropdown-item(href='#') Another action
-        //-       a.dropdown-item(href='#') Something else here
-        // Links
-        // RIGHT SIDE
-        ul.navbar-nav.nav-flex-icons
-          li.nav-item
-            a.nav-link.border.border-light.rounded.waves-effect(href='/auth/google')
-              i.fab.fa-google
-              span.px-4 Login
-        // Search function currently disabled!
-        //- form.form-inline
-        //-   .md-form.my-0
-        //-     input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
-    
-    body
-        div(style='height: 100%; padding-top: 50px;')
-        .flex-center.flex-column.animated.fadeIn
+        // Initializations
+        script(type="text/javascript").
+            // Animations initialization
+            new WOW().init();
+
+
+    header
+        // Navbar
+        nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.scrolling-navbar
+            .container
+                // Brand
+                a.navbar-brand(href='/')
+                    img.pr-4(src='/img/MWR.png' style='max-height:40px')
+                    strong My Weekend Rocks
+                // Collapse
+                button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+                    span.navbar-toggler-icon
+                // Links
+                #navbarSupportedContent.collapse.navbar-collapse
+                    // Left
+                    ul.navbar-nav.mr-auto
+                        li.nav-item.active
+                            a.nav-link(href='/')
+                                | Home
+                                span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='/admin') Admin
+                        //- li.nav-item
+                        //-     a.nav-link(href='/users') Users
+                        //- // Dropdown
+                    //-     li.nav-item.dropdown
+                    //-         a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Dropdown
+                    //-         .dropdown-menu.dropdown-primary(aria-labelledby='navbarDropdownMenuLink')
+                    //-             a.dropdown-item(href='#') Action
+                    //-             a.dropdown-item(href='#') Another action
+                    //-             a.dropdown-item(href='#') Something else here
+                    // Right
+                    ul.navbar-nav.nav-flex-icons
+                        li.nav-item
+                            a.nav-link.border.border-light.rounded.waves-effect(href='/auth/google')
+                                i.fab.fa-google
+                                span.px-4 Login
+        // Navbar
+
+        body
             block content
-    
-    
+            include includes/footer.pug
+
