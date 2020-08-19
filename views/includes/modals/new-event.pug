@@ -1,0 +1,68 @@
+// Modal
+#newEventModal.modal.fade.right(tabindex='-1' role='dialog' aria-labelledby='newEventModalLabel' aria-hidden='true')
+    .modal-dialog.modal-lg(role='document')
+        .modal-content
+            .modal-header
+                h5#newEventModalLabel.modal-title New Event
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+            .modal-body
+                //  TODO:
+                    Add 'required fields'
+                    Add Correct options to event type
+                    Add more options
+                    Add possibility to add and remove options
+                    Add functioning image upload system
+                    Fix calendar input
+
+
+                // This block contains the form used by admins to
+                // submit events to the database
+
+                form(action="/admin/new-event/submit" enctype='multipart/form-data' method="POST").border.border-light.p-5
+
+                    // Event type selector
+                    select#select.browser-default.custom-select.mb-4(name='type')
+                        option(value='' disabled='' selected='') Event Type
+                        option(value='Surfing') Surfing
+                        option(value='Snowboarding') Snowboarding
+                        option(value='Mountain Biking') Mountain Biking
+                        option(value='Hiking') Hiking
+                        option(value='Meditation') Meditation
+                        option(value='Other') Other
+
+                    // Event name
+                    label(for='textInput') Event Name
+                    input#textInput.form-control.mb-4(type='text' placeholder='e.g. Weeklong Surf trip' name='name')
+
+                    // Event start date selector
+                    label(for='textInput') Event Start Date
+                    input#textInput.form-control.mb-4(type='date' placeholder='25.06.2020' name='startDate')
+
+                    // Event start date selector
+                    label(for='textInput') Event End Date
+                    input#textInput.form-control.mb-4(type='date' placeholder='02.07.2020' name='endDate')
+
+                    // Event Location
+                    label(for='textInput') Event Location
+                    input#textInput.form-control.mb-4(type='text' placeholder='e.g. Travemünde' name='location')
+                    // Event description
+                    label(for='textarea') Event Description
+                    textarea#textarea.form-control.mb-4(placeholder='Details about the event.' name='detail')
+
+                    // Event image uploader WIP!
+                    .input-group.mb-4
+                        .custom-file
+                            input#fileInput.custom-file-input(type='file' aria-describedby='fileInput' name='images' multiple)
+                            label.custom-file-label(for='fileInput' style='overflow: hidden;') Choose File
+
+                    // Event public checkbox
+                    .custom-control.custom-checkbox.mb-4
+                        input#checkbox.custom-control-input(type='checkbox', name='public')
+                        label.custom-control-label(for='checkbox') Hide Event
+
+                    // Submit buton
+                    button.btn.btn-danger(type='button' data-dismiss='modal') Close
+                    button.btn.btn-primary(type='submit') Save
+
+// Modal

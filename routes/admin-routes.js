@@ -50,8 +50,11 @@ router.post('/new-event/submit', authCheck, upload.array('images', 10), function
 });
 
 // Deletes document based on recieved name.
+// MISSING EVENT IMAGE DELETION!
 router.post('/delete-event', authCheck, function (req, res, next) {
-    EventModel.deleteOne({name:req.body.name});
+    EventModel.deleteOne({name: req.body.name}, function (err) {
+        if (err) console.log(err);
+    });
     console.log('User ' + req.user.username + ' deleted event ' + req.body.name)
 });
 

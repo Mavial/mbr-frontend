@@ -1,0 +1,38 @@
+//- Send event data to event deletion confirmation modal.
+script.
+    $(document).on('show.bs.modal','#eventDeleteModal' , function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var selectedEvent = button.data('event');
+        selectedEventName = selectedEvent.name;
+        $(this).find(".modal-title").text("Are you sure you want to delete: " + "'" + selectedEvent.name + "' ?")
+    });
+
+
+//- Post event name to delete from DB
+script.
+    function onSuccess() {
+        alert("The event '" + selectedEventName + "' has been deleted")
+        location.reload()
+    }
+
+    function deleteEvent() {
+        $.ajax({
+            type: 'POST',
+            url: '/admin/delete-event',
+            data: {name: selectedEventName},
+            success: onSuccess()
+        });
+    }
+
+// Event deletion prompt
+#eventDeleteModal.modal.fade(tabindex='-1' role='dialog'    aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5.modal-title
+                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') &times;
+            //- .modal-body
+            .modal-footer
+                button.btn.btn-light(type='button' data-dismiss='modal') Cancel
+                button.btn.btn-danger(type='button' onclick='deleteEvent()' data-dismiss='modal') delete
