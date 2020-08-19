@@ -168,7 +168,7 @@ main.pt-5.mx-lg-5.animated.fadeIn
                                                 i.fas.fa-times.mx-4
                                         td
                                             //- EDIT DOES NOT EXIST YET
-                                            button(data-toggle='modal' data-target='#eventEditModal' style='background: transparent; border: none !important')
+                                            button#updateEvent(data-toggle='modal' data-target='#eventFormModal' data-action='update' data-event=event style='background: transparent; border: none !important')
                                                 i.fas.fa-pen(style='color: DodgerBlue;')
                                             p
                                             button#deleteEvent(data-toggle='modal' data-target='#eventDeleteModal' data-event=event style='background: transparent; border: none !important')
@@ -177,7 +177,7 @@ main.pt-5.mx-lg-5.animated.fadeIn
                             // Table body
                         // Table
                         .d-flex.justify-content-end
-                            button#modalActivate.btn.btn-sm.btn-rounded(type='button' data-toggle='modal' data-target='#newEventModal')
+                            button#modalActivate.btn.btn-sm.btn-rounded(type='button' data-toggle='modal' data-target='#eventFormModal' data-action='create')
                                 span(style='margin-right: 8px;') Neues Event Erstellen
                                 i.fas.fa-plus.fa-lg(style='color: green;')
                     // /.Card
@@ -391,5 +391,5 @@ script.
 
 // CUSTOM MODALS
 
-include includes/modals/new-event.pug
+include includes/modals/event-form.pug
 include includes/modals/delete-event.pug

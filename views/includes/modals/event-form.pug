@@ -1,9 +1,49 @@
+//- Send event data to event form modal.
+script.
+    $(document).on('show.bs.modal','#eventFormModal' , function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+
+        var formAction = button.data('action');
+
+        // CHECK IF EVENT IS BEING CREATED OR UPDATED
+        if (formAction === 'update') {
+            var selectedEvent = button.data('event');
+            $(this).find("form[name*='eventForm']").attr('action', '/admin/update-event')   // CHANGE FORM POST ROUTE
+
+            $(this).find(".modal-title").text("Update Event " + "'" + selectedEvent.name + "'") // CHANGE MODAL TITLE
+            $(this).find("button[type='submit']").text('Update')                        // CHANGE SUBMIT BUTTON TEXT
+
+            //- INSERT EXISTING VALUES
+            $(this).find("select[name*='type']").val(selectedEvent.type)
+            $(this).find("input[name*='name']").val(selectedEvent.name)
+            $(this).find("input[name*='startDate']").val(selectedEvent.startDate)   // DATE UPDATING DOES NOT WORK YET
+            $(this).find("input[name*='endDate']").val(selectedEvent.endDate)       // DATE UPDATING DOES NOT WORK YET
+            $(this).find("input[name*='location']").val(selectedEvent.location)
+            $(this).find("textarea[name*='detail']").val(selectedEvent.detail)
+            $(this).find("input[name*='public']").val(selectedEvent.public)         // SHOWING EXISTING STATUS DOES NOT WORK YET
+        }
+        else if (formAction === 'create') {
+            $(this).find("form[name*='eventForm']").attr('action', '/admin/new-event')  // CHANGE FORM POST ROUTE
+            $(this).find(".modal-title").text('Create New Event')                       // CHANGE MODAL TITLE
+            $(this).find("button[type='submit']").text('Save')                          // CHANGE SUBMIT BUTTON TEXT
+
+            //- CLEAR VALUES
+            $(this).find("select[name*='type']").val('')
+            $(this).find("input[name*='name']").val('')
+            $(this).find("input[name*='startDate']").val('')
+            $(this).find("input[name*='endDate']").val('')
+            $(this).find("input[name*='location']").val('')
+            $(this).find("textarea[name*='detail']").val('')
+            $(this).find("input[name*='public']").val('')
+        }
+    });
+
 // Modal
-#newEventModal.modal.fade.right(tabindex='-1' role='dialog' aria-labelledby='newEventModalLabel' aria-hidden='true')
+#eventFormModal.modal.fade.right(tabindex='-1' role='dialog' aria-labelledby='eventFormModalLabel' aria-hidden='true')
     .modal-dialog.modal-lg(role='document')
         .modal-content
             .modal-header
-                h5#newEventModalLabel.modal-title New Event
+                h5#eventFormModalLabel.modal-title
                 button.close(type='button' data-dismiss='modal' aria-label='Close')
                     span(aria-hidden='true') &times;
             .modal-body
@@ -19,7 +59,7 @@
                 // This block contains the form used by admins to
                 // submit events to the database
 
-                form(action="/admin/new-event/submit" enctype='multipart/form-data' method="POST").border.border-light.p-5
+                form(action="/admin/new-event" enctype='multipart/form-data' method="POST" name='eventForm').border.border-light.p-5
 
                     // Event type selector
                     select#select.browser-default.custom-select.mb-4(name='type')
@@ -50,7 +90,7 @@
                     label(for='textarea') Event Description
                     textarea#textarea.form-control.mb-4(placeholder='Details about the event.' name='detail')
 
-                    // Event image uploader WIP!
+                    // Event image uploader
                     .input-group.mb-4
                         .custom-file
                             input#fileInput.custom-file-input(type='file' aria-describedby='fileInput' name='images' multiple)
@@ -62,7 +102,7 @@
                         label.custom-control-label(for='checkbox') Hide Event
 
                     // Submit buton
-                    button.btn.btn-danger(type='button' data-dismiss='modal') Close
-                    button.btn.btn-primary(type='submit') Save
+                    button.btn.btn-danger(type='button' data-dismiss='modal') Cancel
+                    button.btn.btn-primary(type='submit')
 
 // Modal
