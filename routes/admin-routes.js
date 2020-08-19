@@ -19,16 +19,10 @@ router.get('/', authCheck, function (req, res, next) {
     });
 });
 
-// Form to add an event to the database
-router.get('/new-event', authCheck, function (req, res, next) {
-    res.render('event-form', {
-        title: 'New Event',
-    });
-});
 
 // Form submission page.
 // upload.array uses the multer middleware to process the uploaded files.
-router.post('/new-event/submit', authCheck, upload.array('images', 10), (req, res, next) => {
+router.post('/new-event', authCheck, upload.array('images', 10), function (req, res, next) {
     var eventJson = {
         type: req.body.type,
         name: req.body.name,
@@ -49,5 +43,19 @@ router.post('/new-event/submit', authCheck, upload.array('images', 10), (req, re
     });
 });
 
+// Deletes document based on recieved name.
+// MISSING EVENT IMAGE DELETION!
+router.post('/delete-event', authCheck, function (req, res, next) {
+    EventModel.deleteOne({name: req.body.name}, function (err) {
+        if (err) console.log(err);
+    });
+    console.log('User ' + req.user.username + ' deleted event ' + req.body.name)
+});
+
+router.post('/update-event', authCheck, function (req, res, next) {
+    // REQUEST BODY RETURNS EMPTY ON UPDATE BUT WORKS ON CREATE
+    var query = {'name': req.body.name};
+    console.log(req.body.name)
+});
 
 module.exports = router;

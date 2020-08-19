@@ -4,7 +4,7 @@ const router = require('express').Router();
 router.get('/', function (req, res, next) {
   res.render('index', {
     title: 'Express',
-    image: '/images/carousel1.jpeg',
+    image: '/img/carousel1.jpeg',
   });
 });
 
