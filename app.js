@@ -38,13 +38,11 @@ app.use(express.json());
 
 // ROUTERS
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const adminPagesRouter = require('./routes/admin-routes');
 const authRouter = require('./routes/auth-routes');
 
 // ROUTES
 app.use('/', indexRouter);
-app.use('/users', usersRouter); // NOT USED!
 app.use('/admin', adminPagesRouter);
 app.use('/auth', authRouter);
 
