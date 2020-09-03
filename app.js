@@ -38,11 +38,13 @@ app.use(express.json());
 
 // ROUTERS
 const indexRouter = require('./routes/index');
+const eventRouter = require('./routes/event-routes');
 const adminPagesRouter = require('./routes/admin-routes');
 const authRouter = require('./routes/auth-routes');
 
 // ROUTES
 app.use('/', indexRouter);
+app.use('/event-view', eventRouter);
 app.use('/admin', adminPagesRouter);
 app.use('/auth', authRouter);
 

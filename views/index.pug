@@ -2,8 +2,35 @@ extends layout
 
 block content
 		link(href='/css/style-index.css' rel='stylesheet')
+
+		//- Fix the way dates.
+		-function fixedDate(dateString) {
+			// if it's already a date object and not a string you don't need this line:
+			-var date = new Date(dateString);
+			-var d = date.getDate();
+			-var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+			-var m = monthNames[date.getMonth()];
+			-var y = date.getFullYear();
+			-return d+' '+m+' '+y;
+		-}
+
+		script.
+			function onSuccess() {
+				alert("YES")
+				location.reload()
+			}
+
+			function openEvent() {
+				$.ajax({
+					type: 'POST',
+					url: '/event-view',
+					data: {name: event.name},
+					//success: onSuccess()
+				});
+			}
+
 		// Full Page Intro
-		.view.full-page-intro(style="background-image: url('/img/canyon.jpg'); background-repeat: no-repeat; background-size: cover;")
+		.view.full-page-intro(style=`background-image: url('${mainImage}'); background-repeat: no-repeat; background-size: cover;`)
 			// Mask & flexbox options
 			.mask.rgba-black-light.d-flex.justify-content-center.align-items-center
 				// Content
@@ -70,34 +97,23 @@ block content
 					.row
 						// Grid column
 						.col-md-6.mb-4
-							img.img-fluid.z-depth-1-half(src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg" alt="")
+							img.img-fluid.z-depth-1-half(src=exampleEvent.images[0] alt="")
 						// Grid column
 						// Grid column
 						.col-md-6.mb-4
 							// Main heading
-							h3.h3.mb-3 Material Design for Bootstrap
+							h3.h3.mb-3 #{exampleEvent.name}
+							p= exampleEvent.location
 							p
-								| This template is created with Material Design for Bootstrap (
-								strong MDB
-								|  ) framework.
-							p Read details below to learn more about MDB.
+								| #{fixedDate(exampleEvent.startDate)}
+								i.fas.fa-angle-double-right.mx-3
+								| #{fixedDate(exampleEvent.endDate)}
 							// Main heading
 							hr
-							p
-								strong 400+
-								|  material UI elements,
-								strong 600+
-								|  material icons,
-								strong 74
-								|  CSS animations, SASS files, templates, tutorials and many more.
-								strong Free for personal and commercial use.
-							// CTA
-							a.btn.btn-indigo.btn-md(target="_blank" href="https://mdbootstrap.com/docs/jquery/getting-started/download/")
-								| Download
-								i.fas.fa-download.ml-1
-							a.btn.btn-indigo.btn-md(target="_blank" href="https://mdbootstrap.com/docs/jquery/components/")
-								| Live demo
-								i.far.fa-image.ml-1
+							p= exampleEvent.detail
+							// Button
+							button.btn.btn-indigo.btn-md(type='button' onclick='openEvent()')
+								| Zum event
 						// Grid column
 					// Grid row
 				// Section: Main info
